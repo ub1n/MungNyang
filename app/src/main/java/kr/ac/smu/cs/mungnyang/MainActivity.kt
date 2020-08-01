@@ -1,4 +1,4 @@
-package kr.ac.smu.cs.mungnayng
+package kr.ac.smu.cs.mungnyang
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

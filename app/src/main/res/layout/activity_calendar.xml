@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecordActivity">
+    tools:context=".CalendarActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -13,9 +13,8 @@
         android:background="@android:color/white"
         android:elevation="30dp"
         android:padding="18dp"
-        tools:ignore="MissingConstraints">
-
-
+        tools:ignore="MissingConstraints"
+        android:orientation="horizontal">>
         <TextView
             android:id="@+id/textView_cal"
             android:layout_width="368dp"
@@ -27,29 +26,16 @@
             android:textColor="#000000"
             android:textSize="23sp"
             android:textStyle="normal" />
-
-
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/rec_read"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/rec_read"
-        android:layout_marginLeft="15dp"/>
-
-    <ImageView
-        android:id="@+id/rec_new"
-        android:layout_width="wrap_content"
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rec_read"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/rec_new" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

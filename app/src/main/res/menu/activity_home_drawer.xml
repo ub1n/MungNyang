@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_today"
+            android:icon="@drawable/today"
+            android:title="하루일과" />
+        <item
+            android:id="@+id/nav_record"
+            android:icon="@drawable/record"
+
+            android:title="산책일기" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="홈" />
+        <item
+            android:id="@+id/nav_cal"
+            android:icon="@drawable/calander"
+            android:title="캘린더" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/setting"
+            android:title="설정"/>
+    </group>
+
+
+
+</menu>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kr.ac.smu.cs.mungnayng">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="kr.ac.smu.cs.mungnyang">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReadRecordActivity"></activity>
+        <activity android:name=".Calendar_SelectedActivity"></activity>
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".ReadRecordActivity" />
         <activity android:name=".AddRecordActivity" />
         <activity android:name=".RecordActivity" />
         <activity android:name=".TodayActivity" />

@@ -1,4 +1,4 @@
-package kr.ac.smu.cs.mungnayng
+package kr.ac.smu.cs.mungnyang
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -12,7 +12,6 @@ import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.activity_add_record.*
 import kotlinx.android.synthetic.main.activity_sign.*
 import kotlinx.android.synthetic.main.activity_today.*
-import kr.ac.smu.cs.mungnayng.R
 import java.io.ByteArrayOutputStream
 
 class AddRecordActivity : AppCompatActivity() {

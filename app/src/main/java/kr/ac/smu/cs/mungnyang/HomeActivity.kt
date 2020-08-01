@@ -1,4 +1,4 @@
-package kr.ac.smu.cs.mungnayng
+package kr.ac.smu.cs.mungnyang
 
 import android.content.Intent
 import android.os.Bundle
@@ -57,6 +57,11 @@ class HomeActivity : AppCompatActivity() {
                     intent=Intent(this,RecordActivity::class.java)
                     intent.putExtra("user_id",id)
                     startActivityForResult(intent,4)
+                }
+                R.id.nav_cal->{
+                    intent=Intent(this,CalendarActivity::class.java)
+                    intent.putExtra("user_id",id)
+                    startActivityForResult(intent,5)
                 }
             }
 

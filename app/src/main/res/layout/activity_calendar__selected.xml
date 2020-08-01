@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecordActivity">
+    tools:context=".Calendar_SelectedActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -23,7 +23,7 @@
             android:layout_weight="2"
             android:fontFamily="@bold"
             android:gravity="center"
-            android:text="산책일기"
+            android:text="날짜"
             android:textColor="#000000"
             android:textSize="23sp"
             android:textStyle="normal" />
@@ -31,25 +31,51 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/rec_read"
+    <EditText
+        android:id="@+id/cal_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/rec_read"
-        android:layout_marginLeft="15dp"/>
-
-    <ImageView
-        android:id="@+id/rec_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="등록정보"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rec_read"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/rec_new" />
+        app:layout_constraintVertical_bias="0.077" />
+
+    <Button
+        android:id="@+id/cal_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="등록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toEndOf="@+id/cal_editText"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/CalRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cal_editText" />
+
+    <Button
+        android:id="@+id/cal_todo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="할일선택"
+        app:layout_constraintBottom_toTopOf="@+id/CalRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/cal_editText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.468" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
