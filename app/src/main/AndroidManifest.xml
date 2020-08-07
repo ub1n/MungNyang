@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Calendar_SelectedActivity"></activity>
+        <activity android:name=".BackActivity"></activity>
+        <activity android:name=".Calendar_SelectedActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".ReadRecordActivity" />
         <activity android:name=".AddRecordActivity" />

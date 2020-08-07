@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_home)
 
         homeViewModel.text.observe(this, Observer {
-            textView.text = "day+"
+            //textView.text = "day+"
         })
         return root
     }

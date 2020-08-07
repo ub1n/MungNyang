@@ -15,4 +15,6 @@ class User() {
     var color:String?=null
     var dday:String?=null
     var image: ByteArray?=null
+    var backPath:Int=0
+    var maruPath:Int=0
 }

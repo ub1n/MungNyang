@@ -34,6 +34,7 @@ class Calendar_SelectedActivity : AppCompatActivity() {
         textView_cal.setText("$year"+"년"+"$month"+"월"+"$day"+"일 할일")
         cal_todo_button.setOnClickListener {
             val listItems = arrayOf("산책", "미용", "목욕","약 복용","기타")
+            //val listItems=arrayOf(R.drawable.back0,R.drawable.calander,R.drawable.beauty)
             val mBuilder = AlertDialog.Builder(this@Calendar_SelectedActivity)
             mBuilder.setTitle("할 일을 골라주세요")
             mBuilder.setSingleChoiceItems(listItems, -1) { dialogInterface, i ->

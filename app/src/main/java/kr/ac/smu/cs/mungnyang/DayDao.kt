@@ -10,6 +10,8 @@ interface DayDao {
     @Query("SELECT * FROM day WHERE userid=(:userid)") //email 값이 등록한 email과 같은 유저 전부 보이는 쿼리
     fun getDay(userid:Int): MutableList<Day>
 
+    @Query("SELECT * FROM day WHERE id=(:id)")
+    fun getDay2(id:Int):MutableList<Day>
     @Update(onConflict = OnConflictStrategy.ABORT)
     fun update(day:Day)
 

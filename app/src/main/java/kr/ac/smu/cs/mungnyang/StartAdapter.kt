@@ -58,6 +58,16 @@ class StartAdapter(private var userList:MutableList<User>,context : Context) : R
             var intent= Intent(view.context, HomeActivity::class.java)
             //intent.putExtra("goal_name",goalList[position].title)
             intent.putExtra("user_id",userList[position].id)
+
+
+            intent.putExtra("name",userList[position].name)
+            intent.putExtra("gender",userList[position].gender)
+            intent.putExtra("birth",userList[position].birth)
+            intent.putExtra("type",userList[position].type)
+            intent.putExtra("num",userList[position].num)
+            intent.putExtra("color",userList[position].color)
+            intent.putExtra("dday",userList[position].dday)
+            intent.putExtra("image",userList[position].image)
             //intent.putExtra("goal_dday",goalList[position].dayscount)
             //TokenTon.setpostId(goalList[position].id)
             view.context.startActivity(intent)

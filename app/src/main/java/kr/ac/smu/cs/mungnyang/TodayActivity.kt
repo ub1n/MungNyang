@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,9 +23,31 @@ class TodayActivity : AppCompatActivity() {
 
         val userid=intent.getIntExtra("user_id",0)
         var addintent: Intent?=null
-
+        val id=intent.getIntExtra("id",0)
 
         dayDatabase=DayDatabase.getInstance(this)
+
+
+        try {
+            if (id != -2) {
+                Thread{dayList=dayDatabase?.dayDao?.getDay2(id)!!}.start()
+
+                /*day.id = dayList[0].id
+
+                day.done = dayList[0].done
+                day.userid = dayList[0].userid
+                day.todo = dayList[0].todo*/
+                //dayList[0].done=true
+                Thread { dayDatabase?.dayDao?.update(day)!! }.start()
+            }
+        }catch(e:Exception){
+            Toast.makeText(this,"$e",Toast.LENGTH_LONG).show()
+        }
+
+        //for(i in 0..(dayList.size-1))
+
+
+
 
         mAdapter= DayAdapter(dayList,applicationContext)
         val r = Runnable {   //recyclerview와 android room 결합

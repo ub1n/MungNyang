@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.theartofdev.edmodo.cropper.CropImage
+import kotlinx.android.synthetic.main.activity_calendar__selected.*
 import kotlinx.android.synthetic.main.activity_sign.*
 import java.io.ByteArrayOutputStream
 
@@ -44,10 +46,32 @@ class SignActivity : AppCompatActivity() {
 
 
             val intent = Intent(this, StartActivity::class.java) //로그인 액티비티로 돌아가기
-            this.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            this.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
             this.finish()}catch(e:Exception){
                 Toast.makeText(this,"$e",Toast.LENGTH_LONG).show()
             }
+        }
+
+        edit_kind.setOnClickListener {
+
+                val listItems = arrayOf("강아지", "고양이")
+                val mBuilder = AlertDialog.Builder(this@SignActivity)
+                mBuilder.setTitle("종류를 골라주세요")
+                mBuilder.setSingleChoiceItems(listItems, -1) { dialogInterface, i ->
+
+                    user.type=listItems[i]
+                    dialogInterface.dismiss()
+                    edit_kind.setText(listItems[i])
+                }
+                // Set the neutral/cancel button click listener
+                mBuilder.setNeutralButton("Cancel") { dialog, which ->
+                    // Do something when click the neutral button
+                    dialog.cancel()
+                }
+
+                val mDialog = mBuilder.create()
+                mDialog.show()
+
         }
 
     }
