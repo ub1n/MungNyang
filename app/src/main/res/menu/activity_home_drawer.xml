@@ -24,7 +24,7 @@
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/setting"
-            android:title="설정"/>
+            android:title="스탬프 현황" />
     </group>
 
 

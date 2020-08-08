@@ -26,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         val id:Int=intent.getIntExtra("user_id",0)
+        val check:Int=intent.getIntExtra("level_check",0)
         userDatabase=UserDatabase.getInstance(this)
         Thread{userList = userDatabase?.userDao?.getUser(id)!!}.start()
 
@@ -56,6 +57,13 @@ class HomeActivity : AppCompatActivity() {
         user.image=userList[0].image
         user.backPath=userList[0].backPath
         user.maruPath=userList[0].maruPath
+        user.myLevel=userList[0].myLevel
+        if(check==1){
+            user.myLevel=Com.mlevel
+            Thread{userDatabase?.userDao?.update(user)!!}.start()
+        }else{
+            Com.setLevel(user.myLevel)
+        }
         if(Com.backPath!=0){
             user.backPath=Com.backPath
             Thread{userDatabase?.userDao?.update(user)!!}.start()
@@ -120,6 +128,11 @@ class HomeActivity : AppCompatActivity() {
                     intent=Intent(this,CalendarActivity::class.java)
                     intent.putExtra("user_id",id)
                     startActivityForResult(intent,5)
+                }
+                R.id.nav_setting->{
+                    intent=Intent(this,StampActivity::class.java)
+                    intent.putExtra("user_id",id)
+                    startActivityForResult(intent,6)
                 }
             }
 

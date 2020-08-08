@@ -16,16 +16,26 @@ class BackActivity : AppCompatActivity() {
             R.drawable.maru8,R.drawable.maru9,R.drawable.maru10,R.drawable.maru11)
         val id:Int=intent.getIntExtra("user_id",0)
         val num:Int=intent.getIntExtra("num",0)
+        var levelback=arrayOf(R.drawable.back0,R.drawable.back12,R.drawable.back13,R.drawable.back14,R.drawable.back15)
+        var levelmaru=arrayOf(R.drawable.maru0)
 
+
+        for(i in 1..(Com.mlevel-1)){
+            levelback=levelback.plusElement(back[i])
+        }
+        for(i in 1..(Com.mlevel-1)){
+            //levelmaru.plus(maru[i])
+            levelmaru=levelmaru.plusElement(maru[i])
+        }
         if(num==0){
-            mAdapter=BackAdapter(back,applicationContext,0,id)
+            mAdapter=BackAdapter(levelback,applicationContext,0,id)
             mAdapter.notifyDataSetChanged()
             BackRecyclerView.adapter=mAdapter
             BackRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
             BackRecyclerView.setHasFixedSize(true)
         }else{
-            mAdapter=BackAdapter(maru,applicationContext,1,id)
+            mAdapter=BackAdapter(levelmaru,applicationContext,1,id)
             mAdapter.notifyDataSetChanged()
             BackRecyclerView.adapter=mAdapter
             BackRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)

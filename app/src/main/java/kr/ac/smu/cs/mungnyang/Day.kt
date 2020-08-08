@@ -10,4 +10,6 @@ class Day {
     var userid:Int?=null
     var todo:String?=null
     var done:Boolean=false
+    var date:String?=null
+    var oneday:Boolean=false
 }

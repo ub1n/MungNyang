@@ -17,4 +17,5 @@ class User() {
     var image: ByteArray?=null
     var backPath:Int=0
     var maruPath:Int=0
+    var myLevel:Int=1
 }

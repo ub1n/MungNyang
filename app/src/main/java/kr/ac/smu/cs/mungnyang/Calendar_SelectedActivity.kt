@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_calendar.*
 import kotlinx.android.synthetic.main.activity_calendar__selected.*
 import kotlinx.android.synthetic.main.activity_calendar__selected.CalRecyclerView
 import kotlinx.android.synthetic.main.activity_calendar__selected.cal_add_button
@@ -73,7 +74,10 @@ class Calendar_SelectedActivity : AppCompatActivity() {
         val thread = Thread(r)
         thread.start()
 
-
+        val database: CalDatabase = CalDatabase.getInstance(applicationContext)
+        val calDao: CalDao=database.calDao
+        val memoList=ArrayList<Cal>()
+        Thread{memoList.addAll(calDao.getCal(year,month,day))}.start()
         val simpleItemTouchCallback = object :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
@@ -93,7 +97,7 @@ class Calendar_SelectedActivity : AppCompatActivity() {
                 //showToast("on remove " + mList.remove(position))
 
                 // 아답타에게 알린다
-                Thread { calDatabase?.calDao?.delete(calList[position].id) }.start()
+                Thread { calDatabase?.calDao?.delete(memoList[position].id) }.start()
 
                 val adapter = CalRecyclerView.adapter as CalAdapter
                 adapter.remove(position)
@@ -117,6 +121,7 @@ class Calendar_SelectedActivity : AppCompatActivity() {
             cal.day=day
             cal.caltext=cal_editText.text.toString()
             Thread { calDatabase?.calDao?.insert(cal) }.start()
+
             mAdapter.notifyDataSetChanged()
             val intent= Intent(this,Calendar_SelectedActivity::class.java)
             //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)

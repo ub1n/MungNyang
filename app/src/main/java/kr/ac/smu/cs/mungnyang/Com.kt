@@ -15,5 +15,13 @@ class Com {
         fun setType(id:Int){
             anitype=id
         }
+        var mlevel:Int=0
+        fun setLevel(id:Int){
+            mlevel=id
+        }
+        fun levelUp(){
+            mlevel++
+        }
+
     }
 }

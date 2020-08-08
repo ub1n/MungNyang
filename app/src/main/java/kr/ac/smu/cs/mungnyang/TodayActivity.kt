@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_start.*
 import kotlinx.android.synthetic.main.activity_today.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TodayActivity : AppCompatActivity() {
     private var dayDatabase:DayDatabase?=null
@@ -28,21 +31,7 @@ class TodayActivity : AppCompatActivity() {
         dayDatabase=DayDatabase.getInstance(this)
 
 
-        try {
-            if (id != -2) {
-                Thread{dayList=dayDatabase?.dayDao?.getDay2(id)!!}.start()
 
-                /*day.id = dayList[0].id
-
-                day.done = dayList[0].done
-                day.userid = dayList[0].userid
-                day.todo = dayList[0].todo*/
-                //dayList[0].done=true
-                Thread { dayDatabase?.dayDao?.update(day)!! }.start()
-            }
-        }catch(e:Exception){
-            Toast.makeText(this,"$e",Toast.LENGTH_LONG).show()
-        }
 
         //for(i in 0..(dayList.size-1))
 
@@ -68,7 +57,10 @@ class TodayActivity : AppCompatActivity() {
         val thread = Thread(r)
         thread.start()
 
-
+        val database: DayDatabase = DayDatabase.getInstance(applicationContext)
+        val dayDao: DayDao=database.dayDao
+        val memoList=ArrayList<Day>()
+        Thread{memoList.addAll(dayDao.getDay(userid))}.start()
         val simpleItemTouchCallback = object :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
@@ -88,11 +80,12 @@ class TodayActivity : AppCompatActivity() {
                 //showToast("on remove " + mList.remove(position))
 
                 // 아답타에게 알린다
-                Thread { dayDatabase?.dayDao?.delete(dayList[position].id) }.start()
+
+                Thread { dayDatabase?.dayDao?.delete(memoList[position].id) }.start()
 
                 val adapter = CalRecyclerView.adapter as DayAdapter
                 adapter.remove(position)
-                //mRecyclerView.adapter?.notifyItemRemoved(position)
+                //CalRecyclerView.adapter?.notifyItemRemoved(position)
 
 
 
@@ -106,9 +99,18 @@ class TodayActivity : AppCompatActivity() {
         val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
         itemTouchHelper.attachToRecyclerView(CalRecyclerView)
 
+
+        val now=System.currentTimeMillis()
+        val mdate= Date(now)
+        val simpledate= SimpleDateFormat("dd")
+        val getTime=simpledate.format(mdate)
+
+
         cal_add_button.setOnClickListener{
              day.userid=userid
             day.todo=cal_editText.text.toString()
+            day.date=getTime
+
             Thread { dayDatabase?.dayDao?.insert(day) }.start()
             mAdapter.notifyDataSetChanged()
             val intent=Intent(this,TodayActivity::class.java)
