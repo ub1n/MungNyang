@@ -6,24 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_today"
-            android:icon="@drawable/today"
+            android:icon="@drawable/ic_day_24dp"
             android:title="하루일과" />
         <item
             android:id="@+id/nav_record"
-            android:icon="@drawable/record"
+            android:icon="@drawable/ic_rec_24dp"
 
             android:title="산책일기" />
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/home"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="홈" />
         <item
             android:id="@+id/nav_cal"
-            android:icon="@drawable/calander"
+            android:icon="@drawable/ic_cal_black_24dp"
             android:title="캘린더" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/setting"
+            android:icon="@drawable/ic_stamp_24dp"
             android:title="스탬프 현황" />
     </group>
 

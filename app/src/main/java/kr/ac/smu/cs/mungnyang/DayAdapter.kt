@@ -76,9 +76,9 @@ class DayAdapter(private var dayList:MutableList<Day>,context : Context) : Recyc
                 if(cnt==dayList.size){
                     if(dayList[position].oneday==false){
                         if(Com.mlevel>12){
-                            Toast.makeText(view.context,"already full level",Toast.LENGTH_LONG).show()
+                            Toast.makeText(view.context,"이미 최대 스탬프 입니다!",Toast.LENGTH_LONG).show()
                         }else{
-                            Toast.makeText(view.context,"level up",Toast.LENGTH_LONG).show()
+                            Toast.makeText(view.context,"스탬프 획득!",Toast.LENGTH_LONG).show()
                             Com.levelUp()
                         //if(level>12) -> Toast.makeText(view.context,"already full level",Toast.LENGTH_LONG).show() else-> level++
                              dayList[position].oneday=true
@@ -89,7 +89,7 @@ class DayAdapter(private var dayList:MutableList<Day>,context : Context) : Recyc
                             view.context.startActivity(intent)
                         }}
                     else {
-                        Toast.makeText(view.context, "already level up", Toast.LENGTH_LONG).show()
+                        Toast.makeText(view.context, "이미 오늘 스탬프를 받았어요!", Toast.LENGTH_LONG).show()
                     }
                 }
             }

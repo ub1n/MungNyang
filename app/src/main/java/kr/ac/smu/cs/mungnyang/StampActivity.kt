@@ -90,7 +90,7 @@ class StampActivity : AppCompatActivity() {
                     LayoutParams.WRAP_CONTENT
                 )
             )
-            image.setImageResource(R.drawable.stamp)
+            image.setImageResource(R.drawable.caletc)
                 image.setPadding(30)
             layout2.addView(image)}
             else if(i<7){
@@ -101,7 +101,7 @@ class StampActivity : AppCompatActivity() {
                         LayoutParams.WRAP_CONTENT
                     )
                 )
-                image2.setImageResource(R.drawable.stamp)
+                image2.setImageResource(R.drawable.caletc)
                 image2.setPadding(30)
                 layout3.addView(image2)
             }else if(i<10){

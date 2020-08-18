@@ -12,7 +12,7 @@ class RecordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
         val userid=intent.getIntExtra("user_id",0)
-        Toast.makeText(this,"$userid", Toast.LENGTH_LONG).show()
+        Thread.sleep(300)
         rec_new.setOnClickListener {
             val intent= Intent(this,AddRecordActivity::class.java)
             intent.putExtra("user_id",userid)

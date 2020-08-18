@@ -20,7 +20,6 @@ class ReadRecordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_read_record)
 
         val userid=intent.getIntExtra("user_id",0)
-        Toast.makeText(this,"$userid",Toast.LENGTH_LONG).show()
         recordDatabase=RecordDatabase.getInstance(this)
 
         mAdapter= RecordAdapter(recordList,applicationContext)

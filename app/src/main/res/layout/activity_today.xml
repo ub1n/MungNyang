@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F4DE"
     tools:context=".TodayActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="#FFDF84"
         android:elevation="30dp"
         android:padding="18dp"
         tools:ignore="MissingConstraints">
@@ -24,7 +25,7 @@
             android:fontFamily="@bold"
             android:gravity="center"
             android:text="하루일과"
-            android:textColor="#000000"
+            android:textColor="#945252"
             android:textSize="23sp"
             android:textStyle="normal" />
 
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="등록정보"
+        android:text="하루일과"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.191"

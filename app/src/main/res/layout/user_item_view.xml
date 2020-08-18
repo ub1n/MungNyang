@@ -39,7 +39,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingTop="180dp"
-            android:text="Hello"
+            android:text="이름을 입력해주세요"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="normal" />
@@ -61,6 +61,7 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/user_imageView_text2"
             android:layout_width="wrap_content"
@@ -74,7 +75,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingTop="150dp"
-            android:text="Hello"
+            android:text="날짜를입력해주세요"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />

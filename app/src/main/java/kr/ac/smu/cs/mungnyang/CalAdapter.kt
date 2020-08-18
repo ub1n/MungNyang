@@ -31,7 +31,7 @@ class CalAdapter(private var calList:MutableList<Cal>,context : Context) : Recyc
                         "목욕"->cal_image.setImageResource(R.drawable.shower)
                         "미용"->cal_image.setImageResource(R.drawable.beauty)
                         "약 복용"->cal_image.setImageResource(R.drawable.drug)
-                        "기타"->cal_image.setImageResource(R.drawable.caletc)
+                        "기타"->cal_image.setImageResource(R.drawable.stamp)
                     }
 
 

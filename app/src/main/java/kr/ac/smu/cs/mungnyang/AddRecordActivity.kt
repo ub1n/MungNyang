@@ -25,7 +25,6 @@ class AddRecordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_record)
 
         val userid=intent.getIntExtra("user_id",0)
-        Toast.makeText(this,"$userid",Toast.LENGTH_LONG).show()
         rec_add.setOnClickListener{
             record.userid=userid
             record.name=rec_name.text.toString()
@@ -100,7 +99,7 @@ class AddRecordActivity : AppCompatActivity() {
                     rec_pic.setImageURI(resultUri)
                     var bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
                     var stream= ByteArrayOutputStream()
-                    bitmap?.compress(Bitmap.CompressFormat.JPEG,100,stream)
+                    bitmap?.compress(Bitmap.CompressFormat.JPEG,10,stream)
                     var byteArray=stream.toByteArray()
                     record.image=byteArray
                     /*var bitmapToUri = getImageUri(this, bitmap)

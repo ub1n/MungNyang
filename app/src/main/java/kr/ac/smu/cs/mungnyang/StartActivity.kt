@@ -40,6 +40,8 @@ class StartActivity : AppCompatActivity() {
         val thread = Thread(r)
         thread.start()
 
+        Thread.sleep(1000)
+
         petAddbutton.setOnClickListener {
             addintent= Intent(this,SignActivity::class.java)
             startActivityForResult(addintent,2)

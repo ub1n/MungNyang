@@ -11,6 +11,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.user_item_view.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StartAdapter(private var userList:MutableList<User>,context : Context) : RecyclerView.Adapter<StartAdapter.ViewHolder>() {
 
@@ -45,10 +47,31 @@ class StartAdapter(private var userList:MutableList<User>,context : Context) : R
                     user_imageView.setImageBitmap(picture)
                     //user_imageView.setImageBitmap(item.image)
                     //item 위에 글자쓰기
+
+                    if(item.cdday == "만난 날"){
+                        var a=countdday(item.met_year,item.met_month,item.met_day)
+                        user_text2.setText("D+"+"$a")
+                    }else if(item.cdday=="생일"){
+                        var a=countdday(item.birth_year,item.birth_month,item.birth_day)
+                        user_text2.setText("D+"+"$a")
+                    }else{
+                        user_text2.setText("날짜를 선택해주세요")
+                    }
                     user_text.setText(item.name)
-                    user_text2.setText(item.dday.toString())
 
 
+
+                }else{
+                    if(item.cdday == "만난 날"){
+                        var a=countdday(item.met_year,item.met_month,item.met_day)
+                        user_text2.setText("D+"+"$a")
+                    }else if(item.cdday=="생일"){
+                        var a=countdday(item.birth_year,item.birth_month,item.birth_day)
+                        user_text2.setText("D+"+"$a")
+                    }else{
+                        user_text2.setText("날짜를 선택해주세요")
+                    }
+                    user_text.setText(item.name)
                 }
             }
         }
@@ -81,5 +104,27 @@ class StartAdapter(private var userList:MutableList<User>,context : Context) : R
         val user_imageView: ImageView =view.user_imageView
         val user_text: TextView =view.user_imageView_text
         val user_text2: TextView =view.user_imageView_text2
+    }
+    fun countdday(myear: Int, mmonth: Int, mday: Int): Int {
+        var mmonth = mmonth
+        try {
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+
+            val todaCal = Calendar.getInstance() //오늘날자 가져오기
+            val ddayCal = Calendar.getInstance() //오늘날자를 가져와 변경시킴
+
+            mmonth -= 1 // 받아온날자에서 -1을 해줘야함.
+            ddayCal.set(myear, mmonth, mday)// D-day의 날짜를 입력
+
+            val today =
+                todaCal.getTimeInMillis() / 86400000 //->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
+            val dday = ddayCal.getTimeInMillis() / 86400000
+            val count = today-dday // 오늘 날짜에서 dday 날짜를 빼주게 됩니다.
+            return count.toInt()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return -1
+        }
+
     }
 }
