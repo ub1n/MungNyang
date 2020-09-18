@@ -38,8 +38,11 @@ class SignActivity : AppCompatActivity() {
         add_button.setOnClickListener {
             try{
             user.name=name_edit.text.toString()
+                if(user.name=="테스트"){
+                    user.myLevel=19
+                }
             user.birth=edit_birth.text.toString()
-            user.color=edit_color.text.toString()
+           // user.color=edit_color.text.toString()
             user.dday=edit_dday.text.toString()
            // user.gender=edit_gender.text.toString()
             user.num=edit_num.text.toString()

@@ -75,7 +75,7 @@ class DayAdapter(private var dayList:MutableList<Day>,context : Context) : Recyc
                 cnt=cnt+1
                 if(cnt==dayList.size){
                     if(dayList[position].oneday==false){
-                        if(Com.mlevel>12){
+                        if(Com.mlevel>19){
                             Toast.makeText(view.context,"이미 최대 스탬프 입니다!",Toast.LENGTH_LONG).show()
                         }else{
                             Toast.makeText(view.context,"스탬프 획득!",Toast.LENGTH_LONG).show()

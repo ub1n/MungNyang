@@ -32,7 +32,8 @@ class StampActivity : AppCompatActivity() {
         edit.setTextSize(23.0F)
         edit.setPadding(30,30,30,30)
 
-
+        val listv=ListView(this)
+        listv.layoutParams=LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT)
 
         val layout2 = LinearLayout(this)
         layout2.orientation = LinearLayout.HORIZONTAL
@@ -63,6 +64,22 @@ class StampActivity : AppCompatActivity() {
         )
         layout4.setHorizontalGravity(Gravity.CENTER)
 
+        val layout7 = LinearLayout(this)
+        layout7.orientation = LinearLayout.HORIZONTAL
+        layout7.layoutParams = LayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT
+        )
+        layout7.setHorizontalGravity(Gravity.CENTER)
+
+        val layout6 = LinearLayout(this)
+        layout6.orientation = LinearLayout.HORIZONTAL
+        layout6.layoutParams = LayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT
+        )
+        layout6.setHorizontalGravity(Gravity.CENTER)
+
 
         layout.addView(edit)
         /*for(i in 1..3){
@@ -77,10 +94,13 @@ class StampActivity : AppCompatActivity() {
             image.setPadding(30,30,30,30)
             layout.addView(image)
         }*/
+
         layout.addView(layout2)
         layout.addView(layout3)
         layout.addView(layout4)
         layout.addView(layout5)
+        layout.addView(layout6)
+        layout.addView(layout7)
         for(i in 1..Com.mlevel){
             if(i<4){
             val image= ImageView(this)
@@ -112,10 +132,10 @@ class StampActivity : AppCompatActivity() {
                         LayoutParams.WRAP_CONTENT
                     )
                 )
-                image2.setImageResource(R.drawable.stamp)
+                image2.setImageResource(R.drawable.caletc)
                 image2.setPadding(30)
                 layout4.addView(image2)
-            }else{
+            }else if(i<13){
                 val image2 = ImageView(this)
                 image2.setLayoutParams(
                     LayoutParams(
@@ -123,9 +143,32 @@ class StampActivity : AppCompatActivity() {
                         LayoutParams.WRAP_CONTENT
                     )
                 )
-                image2.setImageResource(R.drawable.stamp)
+                image2.setImageResource(R.drawable.caletc)
                 image2.setPadding(30)
                 layout5.addView(image2)
+            }else if(i<16){
+                val image2 = ImageView(this)
+                image2.setLayoutParams(
+                    LayoutParams(
+                        LayoutParams.WRAP_CONTENT,
+                        LayoutParams.WRAP_CONTENT
+                    )
+                )
+                image2.setImageResource(R.drawable.caletc)
+                image2.setPadding(30)
+                layout6.addView(image2)
+            }
+            else{
+                val image2 = ImageView(this)
+                image2.setLayoutParams(
+                    LayoutParams(
+                        LayoutParams.WRAP_CONTENT,
+                        LayoutParams.WRAP_CONTENT
+                    )
+                )
+                image2.setImageResource(R.drawable.caletc)
+                image2.setPadding(30)
+                layout7.addView(image2)
             }
         }
 

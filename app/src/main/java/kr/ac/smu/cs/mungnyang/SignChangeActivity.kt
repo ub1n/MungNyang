@@ -39,7 +39,7 @@ class SignChangeActivity : AppCompatActivity() {
         user.birth=userList[0].birth
         user.type=userList[0].type
         user.num= userList[0].num
-        user.color=userList[0].color
+       // user.color=userList[0].color
         user.dday=userList[0].dday
         user.image=userList[0].image
         user.backPath=userList[0].backPath
@@ -54,7 +54,7 @@ class SignChangeActivity : AppCompatActivity() {
         user.cdday=userList[0].cdday
 
         edit_birth.setText("\"${user.birth_year}년\"+\" \"+\"${user.birth_month}월\"+\" \"+\"${user.birth_day}일\"")
-        edit_color.setText(user.color)
+       // edit_color.setText(user.color)
         edit_dday.setText("\"${user.met_year}년\"+\" \"+\"${user.met_month}월\"+\" \"+\"${user.met_day}일\"")
         edit_gender.setText(user.gender)
         if(user.image!=null) {
@@ -78,7 +78,7 @@ class SignChangeActivity : AppCompatActivity() {
             try{
                 user.name=name_edit.text.toString()
                 user.birth=edit_birth.text.toString()
-                user.color=edit_color.text.toString()
+            //    user.color=edit_color.text.toString()
                 user.dday=edit_dday.text.toString()
                 // user.gender=edit_gender.text.toString()
                 user.num=edit_num.text.toString()

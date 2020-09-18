@@ -15,7 +15,7 @@ class User() {
     var birth_day:Int=0
     var type:String?=null
     var num:String?= null
-    var color:String?=null
+  //  var color:String?=null
     var met_day:Int=0
     var met_month:Int=0
     var met_year:Int=0

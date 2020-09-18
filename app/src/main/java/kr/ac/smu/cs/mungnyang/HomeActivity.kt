@@ -59,7 +59,7 @@ class HomeActivity : AppCompatActivity() {
         user.birth=userList[0].birth
         user.type=userList[0].type
         user.num= userList[0].num
-        user.color=userList[0].color
+      //  user.color=userList[0].color
         user.dday=userList[0].dday
         user.image=userList[0].image
         user.backPath=userList[0].backPath
@@ -74,8 +74,11 @@ class HomeActivity : AppCompatActivity() {
         user.cdday=userList[0].cdday
 
         if(user.cdday=="생일"){
-            dday=countdday(user.birth_year,user.birth_month,user.birth_day)
-            HomeText.text="D+"+"$dday"
+            dday=countdday2(user.birth_year,user.birth_month,user.birth_day)
+            HomeText.text="D"+"$dday"
+            if(dday==0){
+                HomeText.text="오늘 생일입니다!"
+            }
         }
         if(user.cdday=="만난 날"){
             dday=countdday(user.met_year,user.met_month,user.met_day)
@@ -108,6 +111,8 @@ class HomeActivity : AppCompatActivity() {
             Com.setType(0)*/
         if(user.type=="고양이") {
             Glide.with(this).asGif().load(R.drawable.cat_gif).into(dogimage)
+        }else{
+            Glide.with(this).asGif().load(R.drawable.dog_gif).into(dogimage)
         }
             //dogimage.setImageResource(R.drawable.cat)}
        // Toast.makeText(this,user.birth,Toast.LENGTH_LONG).show()
@@ -231,7 +236,33 @@ class HomeActivity : AppCompatActivity() {
             val today =
                 todaCal.getTimeInMillis() / 86400000 //->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
             val dday = ddayCal.getTimeInMillis() / 86400000
-            val count = today-dday // 오늘 날짜에서 dday 날짜를 빼주게 됩니다.
+            val count = today-dday+1 // 오늘 날짜에서 dday 날짜를 빼주게 됩니다.
+            return count.toInt()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return -1
+        }
+
+    }
+    fun countdday2(myear: Int, mmonth: Int, mday: Int): Int {
+        var mmonth = mmonth
+        try {
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+            var day=Calendar.getInstance().get(Calendar.YEAR)
+            val todaCal = Calendar.getInstance() //오늘날자 가져오기
+            val ddayCal = Calendar.getInstance() //오늘날자를 가져와 변경시킴
+
+            mmonth -= 1 // 받아온날자에서 -1을 해줘야함.
+            ddayCal.set(day, mmonth, mday)// D-day의 날짜를 입력
+
+            val today =
+                todaCal.getTimeInMillis() / 86400000 //->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
+            val dday = ddayCal.getTimeInMillis() / 86400000
+
+            var count = today-dday // 오늘 날짜에서 dday 날짜를 빼주게 됩니다.
+            if(count>0){
+                count=count-365
+            }
             return count.toInt()
         } catch (e: Exception) {
             e.printStackTrace()

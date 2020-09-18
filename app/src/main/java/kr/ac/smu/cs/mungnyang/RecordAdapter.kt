@@ -71,8 +71,8 @@ class RecordAdapter(private var recordList:MutableList<Record>,context : Context
 
         holder.read_delete.setOnClickListener { view->
             try {
-                if(recordList.size==1){
-                    Toast.makeText(view.context,"하나만 남았을땐 삭제할 수 없어요!",Toast.LENGTH_LONG).show()
+                if(recordList.size==position+1){
+                    Toast.makeText(view.context,"마지막 기록은 삭제할 수 없어요!",Toast.LENGTH_LONG).show()
                 }else{
                 val readDatabase = RecordDatabase.getInstance(view.context)
 
