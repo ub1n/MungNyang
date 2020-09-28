@@ -18,7 +18,7 @@ class BackActivity : AppCompatActivity() {
             R.drawable.maru17,R.drawable.maru18,R.drawable.maru19,R.drawable.maru20)
         val id:Int=intent.getIntExtra("user_id",0)
         val num:Int=intent.getIntExtra("num",0)
-        var levelback=arrayOf(R.drawable.back0)
+        var levelback=arrayOf(R.drawable.back0,R.drawable.back20)
         var levelmaru=arrayOf(R.drawable.maru0,R.drawable.maru20)
 
 

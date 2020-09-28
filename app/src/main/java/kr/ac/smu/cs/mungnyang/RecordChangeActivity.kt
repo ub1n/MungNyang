@@ -52,7 +52,7 @@ class RecordChangeActivity : AppCompatActivity() {
 
             val intent= Intent(this,ReadRecordActivity::class.java)
             intent.putExtra("user_id",userid)
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()
 

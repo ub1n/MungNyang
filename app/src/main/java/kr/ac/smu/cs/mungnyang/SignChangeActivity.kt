@@ -53,9 +53,9 @@ class SignChangeActivity : AppCompatActivity() {
         user.birth_year=userList[0].birth_year
         user.cdday=userList[0].cdday
 
-        edit_birth.setText("\"${user.birth_year}년\"+\" \"+\"${user.birth_month}월\"+\" \"+\"${user.birth_day}일\"")
+        edit_birth.setText("${user.birth_year}년 "+"${user.birth_month}월 "+"${user.birth_day}일")
        // edit_color.setText(user.color)
-        edit_dday.setText("\"${user.met_year}년\"+\" \"+\"${user.met_month}월\"+\" \"+\"${user.met_day}일\"")
+        edit_dday.setText("${user.birth_year}년 "+"${user.birth_month}월 "+"${user.birth_day}일")
         edit_gender.setText(user.gender)
         if(user.image!=null) {
             val byteArray = user.image
@@ -168,7 +168,7 @@ class SignChangeActivity : AppCompatActivity() {
             user.birth_day=dayOfMonth
             user.birth_month=monthOfYear+1
             user.birth_year=year
-            edit_birth.text="${user.birth_year}년"+" "+"${user.birth_month}월"+" "+"${user.birth_day}일"  //선택한 정보로 버튼수정
+            edit_birth.text="${user.birth_year}년 "+"${user.birth_month}월 "+"${user.birth_day}일"  //선택한 정보로 버튼수정
         }, year, month, day)
 
         dpd.show()
@@ -185,7 +185,7 @@ class SignChangeActivity : AppCompatActivity() {
             user.met_day=dayOfMonth
             user.met_month=monthOfYear+1
             user.met_year=year
-            edit_dday.text="${user.met_year}년"+" "+"${user.met_month}월"+" "+"${user.met_day}일"  //선택한 정보로 버튼수정
+            edit_dday.text="${user.birth_year}년 "+"${user.birth_month}월 "+"${user.birth_day}일"  //선택한 정보로 버튼수정
         }, year, month, day)
 
         dpd.show()

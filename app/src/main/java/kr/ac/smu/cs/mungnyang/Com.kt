@@ -22,6 +22,10 @@ class Com {
         fun levelUp(){
             mlevel++
         }
+        var msize:Int=-1
+        fun setSize(id:Int){
+            msize=id
+        }
 
     }
 }

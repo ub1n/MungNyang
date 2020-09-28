@@ -1,6 +1,9 @@
 package kr.ac.smu.cs.mungnyang
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.media.AudioManager
+import android.media.SoundPool
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.navigation.findNavController
@@ -13,11 +16,14 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.SoundEffectConstants
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_sign.*
 import kotlinx.android.synthetic.main.content_home.*
+import kotlinx.android.synthetic.main.nav_header_home.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,6 +38,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        val boolSound=App.prefs.myCheckSound
+        val soundPool=SoundPool.Builder().build()
+        val soundPlay=soundPool.load(this,R.raw.cat_sound,1)
+        val soundPlay2=soundPool.load(this,R.raw.dog_sound,1)
         val id:Int=intent.getIntExtra("user_id",0)
         val check:Int=intent.getIntExtra("level_check",0)
         userDatabase=UserDatabase.getInstance(this)
@@ -72,7 +82,17 @@ class HomeActivity : AppCompatActivity() {
         user.birth_month=userList[0].birth_month
         user.birth_year=userList[0].birth_year
         user.cdday=userList[0].cdday
+        var context=this
+        if(user.image!=null) {
+            val byteArray = user.image
+            val picture = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
+            //this.tab_imageView.setImageBitmap(picture)
+            var navigationView:NavigationView=findViewById(R.id.nav_view)
+            var header=navigationView.getHeaderView(0)
+            val navimage=header.findViewById<ImageView>(R.id.tab_imageView)
+            navimage.setImageBitmap(picture)
 
+        }
         if(user.cdday=="생일"){
             dday=countdday2(user.birth_year,user.birth_month,user.birth_day)
             HomeText.text="D"+"$dday"
@@ -101,6 +121,7 @@ class HomeActivity : AppCompatActivity() {
             Thread{userDatabase?.userDao?.update(user)!!}.start()
             Com.setmaruimage(0)
         }
+
         if(user.backPath!=0)
             backimage.setImageResource(user.backPath)
         if(user.maruPath!=0)
@@ -111,8 +132,13 @@ class HomeActivity : AppCompatActivity() {
             Com.setType(0)*/
         if(user.type=="고양이") {
             Glide.with(this).asGif().load(R.drawable.cat_gif).into(dogimage)
+            if(boolSound==true){
+                soundPool.play(soundPlay,1f,1f,0,0,1f)}
         }else{
             Glide.with(this).asGif().load(R.drawable.dog_gif).into(dogimage)
+
+            if(boolSound==true){
+                soundPool.play(soundPlay2,1f,1f,0,0,1f)}
         }
             //dogimage.setImageResource(R.drawable.cat)}
        // Toast.makeText(this,user.birth,Toast.LENGTH_LONG).show()
@@ -188,7 +214,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivityForResult(intent,5)
                 }
                 R.id.nav_setting->{
-                    intent=Intent(this,StampActivity::class.java)
+                    intent=Intent(this,SettingActivity::class.java)
                     intent.putExtra("user_id",id)
                     startActivityForResult(intent,6)
                 }
@@ -268,6 +294,13 @@ class HomeActivity : AppCompatActivity() {
             e.printStackTrace()
             return -1
         }
+
+    }
+
+    fun onSound(){
+        val soundPool=SoundPool.Builder().build()
+        val soundPlay=soundPool.load(this,R.raw.cat_sound,1)
+        soundPool.play(soundPlay,1f,1f,0,0,1f)
 
     }
 

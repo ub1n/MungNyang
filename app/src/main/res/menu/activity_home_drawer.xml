@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_today"
             android:icon="@drawable/ic_day_24dp"
+            android:fontFamily="@font/nanumgothiccoding"
             android:title="하루일과" />
         <item
             android:id="@+id/nav_record"
             android:icon="@drawable/ic_rec_24dp"
+            android:fontFamily="@font/nanumgothiccoding"
 
             android:title="산책일기" />
         <item
             android:id="@+id/nav_home"
+            android:fontFamily="@font/nanumgothiccoding"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="홈" />
         <item
             android:id="@+id/nav_cal"
             android:icon="@drawable/ic_cal_black_24dp"
+
+
+            android:fontFamily="@font/nanumgothiccoding"
             android:title="캘린더" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_stamp_24dp"
-            android:title="스탬프 현황" />
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:fontFamily="@font/nanumgothiccoding"
+            android:title="설정" />
     </group>
 
 

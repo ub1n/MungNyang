@@ -21,9 +21,10 @@
             android:layout_width="368dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:fontFamily="@bold"
+            android:fontFamily="@font/nanumgothiccoding"
             android:gravity="center"
-            android:text="산책일기"
+            android:text="캘린더"
+
             android:textColor="#945252"
             android:textSize="23sp"
             android:textStyle="normal" />

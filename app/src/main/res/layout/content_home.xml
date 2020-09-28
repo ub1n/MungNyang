@@ -21,6 +21,7 @@
             android:id="@+id/HomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumgothiccoding"
             android:padding="15dp"
             android:text="Day+"
             android:textColor="#F527A8"
@@ -55,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="437dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/walk" />
 
         </FrameLayout>
     </LinearLayout>

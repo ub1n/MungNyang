@@ -133,7 +133,7 @@ class SignActivity : AppCompatActivity() {
             user.birth_day=dayOfMonth
             user.birth_month=monthOfYear+1
             user.birth_year=year
-            edit_birth.text="${user.birth_year}년"+" "+"${user.birth_month}월"+" "+"${user.birth_day}일"  //선택한 정보로 버튼수정
+            edit_birth.text="${user.birth_year}년 "+"${user.birth_month}월 "+"${user.birth_day}일"  //선택한 정보로 버튼수정
         }, year, month, day)
 
         dpd.show()

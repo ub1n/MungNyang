@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -15,6 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="14sp"
+            android:layout_marginTop="20sp"
             android:orientation="horizontal">
 
             <TextView
@@ -25,30 +28,34 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="30sp"
                 android:layout_weight="1"
+                android:fontFamily="@font/nanumgothiccoding"
                 android:text="TextView"
                 android:textSize="24sp" />
 
-            <Button
+            <ImageView
                 android:id="@+id/rec_change_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
+                android:layout_marginRight="30sp"
                 android:layout_weight="0"
-                android:background="@drawable/read_change"
-                android:textSize="5dp"
-                />
 
-            <Button
+                android:background="@drawable/read_change"
+                android:textSize="5dp" />
+
+            <ImageView
                 android:id="@+id/rec_delete_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="15sp"
+                android:layout_marginRight="35sp"
                 android:layout_weight="0"
                 android:background="@drawable/read_delete"
 
                 android:textColor="#FFFFFF"
                 android:textSize="5dp" />
+
         </LinearLayout>
 
         <ImageView
@@ -57,16 +64,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
+            android:layout_marginTop="20sp"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/rec_pic" />
 
         <TextView
             android:id="@+id/rec_read_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="20sp"
             android:layout_marginRight="20sp"
+            android:fontFamily="@font/nanumgothiccoding"
             android:text="TextView"
             android:textSize="24sp" />
 

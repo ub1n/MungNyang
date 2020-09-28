@@ -7,11 +7,16 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_record.*
 
 class RecordActivity : AppCompatActivity() {
-
+    lateinit var mAdapter:RecordAdapter
+    private var recordDatabase:RecordDatabase?=null
+    private var recordList=mutableListOf<Record>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
         val userid=intent.getIntExtra("user_id",0)
+
+
+
         Thread.sleep(300)
         rec_new.setOnClickListener {
             val intent= Intent(this,AddRecordActivity::class.java)

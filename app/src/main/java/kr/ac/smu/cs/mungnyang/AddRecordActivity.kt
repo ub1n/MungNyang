@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_add_record.*
 import kotlinx.android.synthetic.main.activity_sign.*
 import kotlinx.android.synthetic.main.activity_today.*
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddRecordActivity : AppCompatActivity() {
     private var recordDatabase:RecordDatabase?=null
@@ -23,22 +25,32 @@ class AddRecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_record)
+        val now=System.currentTimeMillis()
+        val mdate= Date(now)
+        val simpledate= SimpleDateFormat("dd")
+        val getTime=simpledate.format(mdate)
 
         val userid=intent.getIntExtra("user_id",0)
         rec_add.setOnClickListener{
             record.userid=userid
             record.name=rec_name.text.toString()
             record.rec=rec_editText.text.toString()
-            val database: RecordDatabase = RecordDatabase.getInstance(applicationContext) //application context
-            val recordDao: RecordDao=database.recordDao
-            Thread { database?.recordDao?.insert(record) }.start()
+            if(record.rec!!.length<10){
+                Toast.makeText(this,"10자 이상 적어야 등록이 됩니다!",Toast.LENGTH_LONG).show()
+            }else if(imgStatus==false){
+                Toast.makeText(this,"사진을 등록해야 저장이 됩니다!",Toast.LENGTH_LONG).show()
+            }else {
+                val database: RecordDatabase =
+                    RecordDatabase.getInstance(applicationContext) //application context
+                val recordDao: RecordDao = database.recordDao
+                Thread { database?.recordDao?.insert(record) }.start()
 
-            val intent= Intent(this,RecordActivity::class.java)
-            intent.putExtra("user_id",userid)
-            //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            startActivity(intent)
-            finish()
-
+                val intent = Intent(this, RecordActivity::class.java)
+                intent.putExtra("user_id", userid)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+                finish()
+            }
 
         }
 

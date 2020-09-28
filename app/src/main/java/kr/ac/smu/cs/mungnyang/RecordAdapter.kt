@@ -27,10 +27,12 @@ class RecordAdapter(private var recordList:MutableList<Record>,context : Context
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         recordList[position].let{ item ->
+
             with(holder) {
-                if(item.name!=null) {  //main에서 사진 띄우기
+                if(getItemCount()!=0) {  //main에서 사진 띄우기
 
-
+                  //  read_check.performClick()
+                    //Toast.makeText(holder.itemView.context,"${getItemCount()}",Toast.LENGTH_SHORT).show()
                     read_name.setText(item.name)
                     read_text.setText(item.rec)
                     if(item.image==null){
@@ -44,9 +46,9 @@ class RecordAdapter(private var recordList:MutableList<Record>,context : Context
 
 
                 }else{
-                    read_name.setText("aaaaa")
-                    read_text.setText("bbbb")
+                    //read_check.performClick()
                 }
+
             }
         }
 
@@ -71,16 +73,28 @@ class RecordAdapter(private var recordList:MutableList<Record>,context : Context
 
         holder.read_delete.setOnClickListener { view->
             try {
-                if(recordList.size==position+1){
-                    Toast.makeText(view.context,"마지막 기록은 삭제할 수 없어요!",Toast.LENGTH_LONG).show()
+                if(recordList.size==-1){
+                    Toast.makeText(view.context,"하나 남았을 떈 삭제할 수 없어요!",Toast.LENGTH_LONG).show()
                 }else{
                 val readDatabase = RecordDatabase.getInstance(view.context)
 
-                Thread { readDatabase?.recordDao?.delete(recordList[position].id) }.start()
-                recordList.removeAt(position)
-                notifyItemRemoved(position)}
+                  //  Toast.makeText(view.context,"${recordList[pos].name}",Toast.LENGTH_SHORT).show()
+                //Thread { readDatabase.recordDao.delete(recordList[pos].id) }.start()    //왜안될까..
+                  //  readDatabase.recordDao.delete(recordList[pos].id)
+                /*remove(position)
+                    var intent= Intent(view.context, ReadRecordActivity::class.java)
+                    //intent.putExtra("goal_name",goalList[position].title)
+                    intent.putExtra("user_id",recordList[pos].userid)
+                    intent.putExtra("id",recordList[pos].id)
+                    intent.putExtra("pos",position)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                   // Toast.makeText(view.context,"${pos}",Toast.LENGTH_LONG).show()
+                    view.context.startActivity(intent)*/
+
+                    Toast.makeText(view.context,"위아래로 스크롤 하면 저장한 일기를 볼 수 있고, 좌우로 스와이프하면 해당 일기가 지워져요!",Toast.LENGTH_LONG).show()
+                }
             }catch(e:Exception){
-                Toast.makeText(view.context,"하나만 남았을땐 삭제할 수 없어요!",Toast.LENGTH_LONG)
+                Toast.makeText(view.context,"오류!",Toast.LENGTH_LONG)
             }
         }
 
@@ -94,9 +108,11 @@ class RecordAdapter(private var recordList:MutableList<Record>,context : Context
         val read_image: ImageView =view.rec_read_image
         val read_delete=view.rec_delete_button
         val read_change=view.rec_change_button
+        //val read_check=view.rec_check_button
     }
     fun remove(position:Int){
         recordList.removeAt(position)
         notifyItemRemoved(position)
+        notifyItemRangeChanged(0,20)
     }
 }

@@ -11,4 +11,5 @@ class Record {
     var name:String?=null
     var rec:String?=null
     var image:ByteArray?=null
+
 }

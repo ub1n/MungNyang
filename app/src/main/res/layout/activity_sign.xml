@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:background="#FFDF84"
+        android:fontFamily="@font/nanumgothiccoding"
         android:text="확인" />
 
     <LinearLayout
@@ -42,6 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/nanumgothiccoding"
                     android:layout_weight="1"
                     android:text="성별"
                     android:textAlignment="center"
@@ -50,7 +53,9 @@
                 <Button
                     android:id="@+id/edit_gender"
                     android:layout_width="wrap_content"
+                    android:background="#FFDF84"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumgothiccoding"
                     android:layout_weight="1"
                     android:text="성별선택" />
 
@@ -66,6 +71,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumgothiccoding"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:text="이름"
@@ -76,6 +82,7 @@
                     android:id="@+id/name_edit"
                     android:layout_width="120dp"
                     android:layout_height="50dp"
+                    android:fontFamily="@font/nanumgothiccoding"
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName" />
@@ -97,6 +104,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="종류"
+            android:fontFamily="@font/nanumgothiccoding"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -104,7 +112,9 @@
             android:id="@+id/edit_kind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFDF84"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumgothiccoding"
             android:text="종류선택" />
 
     </LinearLayout>
@@ -120,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumgothiccoding"
             android:text="고유번호"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -129,6 +140,7 @@
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:fontFamily="@font/nanumgothiccoding"
             android:ems="10"
             android:inputType="textPersonName"
              />
@@ -143,6 +155,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/nanumgothiccoding"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
@@ -154,6 +167,8 @@
             android:id="@+id/edit_birth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumgothiccoding"
+            android:background="#FFDF84"
             android:layout_weight="1"
             android:onClick="clickDataPicker"
             android:text="날짜선택" />
@@ -170,6 +185,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumgothiccoding"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="만난날"
@@ -179,6 +195,8 @@
         <Button
             android:id="@+id/edit_dday"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/nanumgothiccoding"
+            android:background="#FFDF84"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="clickDataPicker2"
@@ -188,7 +206,10 @@
             android:id="@+id/dday_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFDF84"
+            android:fontFamily="@font/nanumgothiccoding"
             android:layout_weight="1"
+            android:layout_marginLeft="5dp"
             android:text="Dday선택" />
     </LinearLayout>
 

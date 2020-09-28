@@ -32,14 +32,24 @@ class Calendar_SelectedActivity : AppCompatActivity() {
         val month=intent.getIntExtra("month",0)
         val day=intent.getIntExtra("day",0)
 
-        textView_cal.setText("$year"+"년"+"$month"+"월"+"$day"+"일 할일")
+        textView_cal.setText("$year"+" ."+"$month"+" ."+"$day")
         cal_todo_button.setOnClickListener {
             val listItems = arrayOf("산책", "미용", "목욕","약 복용","기타")
             //val listItems=arrayOf(R.drawable.back0,R.drawable.calander,R.drawable.beauty)
             val mBuilder = AlertDialog.Builder(this@Calendar_SelectedActivity)
             mBuilder.setTitle("할 일을 골라주세요")
             mBuilder.setSingleChoiceItems(listItems, -1) { dialogInterface, i ->
-
+                if(listItems[i]=="산책"){
+                    cal_todo_button.setImageResource(R.drawable.walk)
+                }else if(listItems[i]=="미용"){
+                    cal_todo_button.setImageResource(R.drawable.beauty)
+                }else if(listItems[i]=="목욕"){
+                    cal_todo_button.setImageResource(R.drawable.shower)
+                }else if(listItems[i]=="약 복용"){
+                    cal_todo_button.setImageResource(R.drawable.drug)
+                }else if(listItems[i]=="기타"){
+                    cal_todo_button.setImageResource(R.drawable.stamp)
+                }
                 cal.todo=listItems[i]
                 dialogInterface.dismiss()
             }
