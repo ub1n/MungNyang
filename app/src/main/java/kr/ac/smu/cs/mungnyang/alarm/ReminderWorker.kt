@@ -35,7 +35,7 @@ class ReminderWorker(appContext: Context, workerParams: WorkerParameters):
 
             //API 레벨 26이상을 요구. app수준의 gradle에서 변경함
             //저녁 6시로 설정
-            val alarmTime= LocalTime.of(13,40)
+            val alarmTime= LocalTime.of(18,0)
             var now= LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)
             val nowTime=now.toLocalTime()
 
